@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+</head>
+<body>
+<h3>Remove Product</h3>
+<p>
+    <a th:href="@{/}">
+        Back to product list
+    </a>
+</p>
+<div id="form">
+    <form th:object="${product}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Name Product</label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label>Price Product (USD)</label>
+            <input type="email" th:field="*{price}"/>
+        </div>
+        <div>
+            <label>Status Product</label>
+            <input type="text" th:field="*{status}"/>
+        </div>
+        <button type="button" th:onclick="|setProductId('${product.id}')|" data-toggle="modal" data-target="#deleteModal">REMOVE</button>
+    </form>
+</div>
+<div class="modal" tabindex="-1" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure delete this product</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" onclick="submitDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<form th:action="@{/product/delete}" method="post" id="idModal">
+    <input type="hidden" name="id" id="idDeleted">
+</form>
+<script>
+    function setProductId(id) {
+        document.getElementById("idDeleted").value = id;
+    }
+    function submitDelete() {
+        document.getElementById("idModal").submit();
+    }
+</script>
+<div th:replace="/layout::script"></div>
+<!--<footer th:replace="/layout :: footer"></footer>-->
+
+</body>
+</html>
