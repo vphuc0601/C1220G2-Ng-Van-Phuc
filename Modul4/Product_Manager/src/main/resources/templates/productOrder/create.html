@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<div>
+    <div th:replace="/layout :: nav"></div>
+    <div style="position:absolute; margin-top: 150px">
+        <form th:action="@{/productOrder/create}" method="post" th:object="${productOrder} "
+              novalidate="novalidate">
+            <!--                            <div class="form-row" >-->
+            <div class="col form-label-group ">
+                <label for="nameProduct">Product Name</label>
+                <select id="nameProduct" th:field="*{product}" class="form-control" style="height: 40px">
+                    <option
+                            th:each="product:${productList}"
+                            th:value="${product.id}"
+                            th:text="${product.name}">
+                    </option>
+                </select>
+            </div>
+            <div class="col form-label-group ">
+                <label for="dayOrder">Day Order:</label>
+                <input id="dayOrder" th:field="*{dayOrder}" type="date" class="form-control"
+                       placeholder="Day order...">
+                <p style="color: red" class="text-center" th:errors="*{dayOrder}"></p>
+            </div>
+            <div class="col form-label-group ">
+                <label for="dayDelivery">Day Delivery:</label>
+                <input id="dayDelivery" th:field="*{dayDelivery}" type="date" class="form-control"
+                       placeholder="Day delivery...">
+                <p style="color: red" class="text-center" th:errors="*{dayDelivery}"></p>
+            </div>
+            <div class="col form-label-group ">
+                <label for="quantity">Quantity:</label>
+                <input id="quantity" th:field="*{quantity}" type="number"
+                       class="form-control" placeholder="..."></input>
+                <p style="color: red" class="text-center" th:errors="*{quantity}"></p>
+            </div>
+            <div style="text-align: center" >
+                <button type="submit" class="btn btn-outline-info">Save</button>
+                <a th:href="@{/productOrder}" class="btn btn-outline-info">Close</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+</head>
+<body>
+<div>
+    <div th:replace="/layout :: nav"></div>
+<div class="table-view container-fluid" style="position:absolute; margin-top: 150px">
+    <div style="text-align: center;" class="container-fluid">
+        <h1>Product List</h1>
+        <a th:href="@{product/create}" class="btn btn-outline-success btn-sm w-25" id="btnModalCreate">Create Product</a>
+        <table class=" table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Name Product</th>
+                <th scope="col">Manufacture</th>
+                <th scope="col">Product Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product:${productList}">
+                <td scope="col" th:text="${product.id}"></td>
+                <td scope="col" th:text="${product.name}"></td>
+                <td scope="col" th:text="${product.manufacture}"></td>
+                <td scope="col" th:text="${product.productType.name}"></td>
+                <td scope="col" th:text="${product.price}"></td>
+
+                <td scope="col">
+                    <button class="btnModalView btn btn-outline-info btn-lg" th:value="${product.id}"><i class="fas fa-eye" style="font-size:20px;"></i></button>
+                    <button class="btnModalDelete btn btn-outline-info btn-lg modalID" th:value="${product.id}">
+                        <i class="fas fa-trash" style="font-size:23px;"></i>
+                    </button>
+<!--                    <a class="btnModalEdit btn btn-outline-info btn-lg" th:href="@{/product/edit/{id}(id=${product.getId()})}"><i class="fas fa-edit" style="font-size:20px;"></i></a>-->
+                    <button class="btnModalEdit btn btn-outline-info btn-lg" th:value="${product.id}"><i class="fas fa-edit" style="font-size:20px;"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <nav aria-label="Page navigation example" style="float: right; margin-right: 25px">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" th:href="@{/product(page = 0, searchName = ${stringAfterCheck})}"><i class="fas fa-arrow-circle-left"></i></a></li>
+                    <th:block th:each="i: ${#numbers.sequence(0, productList.totalPages - 1)}">
+                        <li class="page-item">
+                            <a class="page-link" th:href="@{/product(page=${i},searchName=${stringAfterCheck})}" th:text="${i + 1}"></a>
+                        </li>
+                    </th:block>
+                    <li class="page-item"><a class="page-link" th:href="@{/product(page = ${productList.totalPages - 1}, searchName = ${stringAfterCheck})}"><i class="fas fa-arrow-circle-right"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous">
+</script>
+<script>
+    $(document).ready(function () {
+        $(".btnModalView").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "product/view/" + $(this).val(),
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#modelId").modal('show');
+                }
+            });
+        });
+        $(".btnModalDelete").click(function () {
+            $.ajax({
+                type:"GET",
+                url:"product/delete/" + $(this).val(),
+                dataType:"HTML",
+                success:function (data) {
+                    $(".modal-body").html(data);
+                    $("#modelId").modal('show');
+                }
+            });
+        });
+        $(".btnModalEdit").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "product/edit/" + $(this).val(),
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#modelId").modal('show');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

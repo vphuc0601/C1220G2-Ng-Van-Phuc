@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/product/delete}" method="post" th:object="${product}" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}">
+    <h3>Are you want to delete product <span style="color: red" th:text="${product.name}"></span> ? </h3>
+
+    <button type="submit" class="btn btn-outline-info">Delete</button>
+    <button  class="btn btn-outline-info " data-dismiss="modal" >Close</button>
+</form>
+
+</body>
+
+</html>
