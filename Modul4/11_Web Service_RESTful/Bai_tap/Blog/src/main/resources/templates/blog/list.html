@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blog</title>
+</head>
+<body>
+<a th:href="@{/blog/create}">Create Blog</a>
+<form >
+    <input type="text" name="search" placeholder="search...">
+    <input type="submit" value="Search"/>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Content</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog:${blogList}">
+        <td scope="row" th:text="${blog.id}"></td>
+        <td th:text="${blog.content}"></td>
+        <td th:text="${blog.description}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

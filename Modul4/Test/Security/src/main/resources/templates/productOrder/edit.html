@@ -1,0 +1,38 @@
+        <form th:action="@{/product/edit}" method="post" th:object="${product} "
+              novalidate="novalidate" xmlns:th="http://www.thymeleaf.org">
+            <!--                            <div class="form-row" >-->
+            <input type="hidden" th:field="*{id}">
+            <div class="col form-label-group ">
+                <label for="name">Name Product:</label>
+                <input id="name" th:field="*{name}" type="text" class="form-control"
+                       placeholder="Name product...">
+                <p style="color: red" class="text-center" th:errors="*{name}"></p>
+            </div>
+            <div class="col form-label-group ">
+                <label for="manufacture">Manufacturer:</label>
+                <input id="manufacture" th:field="*{manufacture}" type="text"
+                       class="form-control" placeholder="Manufacture..."></input>
+                <p style="color: red" class="text-center" th:errors="*{manufacture}"></p>
+            </div>
+            <div class="col form-label-group ">
+                <label for="price">Price:</label><br>
+                <input id="price" type="number" th:field="*{price}" class="form-control"
+                       placeholder="Price...">
+                <p style="color: red" class="text-center" th:errors="*{price}"></p>
+            </div>
+            <div class="col form-label-group ">
+                <label for="type">Product Type</label>
+                <select id="type" th:field="*{productType}" class="form-control" style="height: 50px">
+                    <option
+                            th:each="proType : ${productType}"
+                            th:value="${proType.id}"
+                            th:text="${proType.name}"></option>
+                </select>
+            </div>
+            <div style="text-align: center ; padding-top: 10px" >
+                <button type="submit" class="btn btn-outline-info">Save</button>
+                <a data-dismiss="modal" class="btn btn-outline-info">Close</a>
+            </div>
+        </form>
+
+
