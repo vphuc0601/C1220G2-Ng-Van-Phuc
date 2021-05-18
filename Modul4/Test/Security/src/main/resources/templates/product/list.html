@@ -97,12 +97,22 @@
         });
         $(".btnModalDelete").click(function () {
             $.ajax({
+                headers:{
+                    'Accept': 'application/json',      //Nội dung được gửi trong request header giúp server
+                                                        // biết được kiểu response server sẽ chấp nhận khi trả về
+                    'Content-Type': 'application/json'  //Kiểu nội dung của dữ liệu được gửi lên server
+                },
                 type:"GET",
                 url:"product/delete/" + $(this).val(),
                 dataType:"HTML",
                 success:function (data) {
                     $(".modal-body").html(data);
                     $("#modelId").modal('show');
+                },
+                error: function (error) {
+                    if (error.status == 403){
+                       window.location.href = "http://localhost:8080/403";
+                    }
                 }
             });
         });

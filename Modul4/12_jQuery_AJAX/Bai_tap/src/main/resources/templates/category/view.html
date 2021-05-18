@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head"></head>
+<body>
+
+<nav th:replace="/layout :: navbar"></nav>
+
+<div class="container-fluid p-0">
+    <div class="row p-0">
+        <div th:insert="/layout :: sidebar (${categoryList})"></div>
+        <div class="col">
+            <h1 class="text-center my-3" th:text="'Blog Posts in '+ ${category.name}"></h1>
+            <table class="table" id="blogs">
+                <thead>
+                <tr>
+                    <th class="align-middle">ID</th>
+                    <th class="align-middle">Title</th>
+                    <th class="align-middle">Author</th>
+                    <th class="align-middle">Date</th>
+                    <th class="align-middle">Category</th>
+                    <th class="align-middle">Description</th>
+                    <th class="align-middle">
+                        <a class="btn btn-success" th:href="@{/blog/create}"><i class="far fa-plus-square"></i></a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="blog,iterStat : ${blogs}">
+                    <tr>
+                        <td class="align-middle" th:text="${blog.id}"></td>
+                        <td class="align-middle" th:text="${blog.title}"></td>
+                        <td class="align-middle" th:text="${blog.author}"></td>
+                        <td class="align-middle" th:text="${blog.date}"></td>
+                        <td class="align-middle" th:text="${blog.category.name}"></td>
+                        <td class="align-middle" th:text="${blog.description}"></td>
+                        <td>
+                            <a class="btn btn-info" th:href="@{/blog/view(id=${blog.id})}"><i
+                                    class="far fa-eye"></i></a><br>
+                            <a class="btn btn-warning" th:href="@{/blog/edit(id=${blog.id})}"><i
+                                    class="far fa-edit"></i></a><br>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                                    th:onclick="|parseId('${blog.id}')|">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+            <div>
+                <a th:href="@{/category/blogs(id=${category.id}, page=${blogs.number - 1})}"
+                   th:if="${blogs.hasPrevious()}">Previous</a>
+                <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
+                <a th:href="@{/category/blogs(id=${category.id}, page=${blogs.number + 1})}"
+                   th:if="${blogs.hasNext()}">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="/layout :: deleteModal ('blog')"></div>
+<div th:replace="/layout :: script"></div>
+
+</body>
+</html>

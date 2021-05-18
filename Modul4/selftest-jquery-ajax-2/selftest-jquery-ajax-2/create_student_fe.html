@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create student</title>
+</head>
+<body>
+    <p>Name: </p>
+    <input type="text" id="inputName" />
+    <p>Date of birth: </p>
+    <input type="date" id="inputDateOfBirth">
+    <p>Class: </p>
+    <select id="inputClassId">
+        <option value="1">C1120G1</option>
+        <option value="2">C1220G1</option>
+    </select>
+    <button id="btnRegister">Register</button>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btnRegister").click(function() {
+                let name = $("#inputName").val();
+                // document.getElementById("inputName").value
+                let dateOfBirth = $("#inputDateOfBirth").val();
+                let classId = $("#inputClassId").val();
+                let student = {
+                    "name": name,
+                    "dateOfBirth": dateOfBirth,
+                    "classStudent": {
+                        "id": classId
+                    }
+                };
+
+                console.log(student);
+
+                $.ajax({
+                    type: "POST", //GET, DELETE, PUT...
+                    url: "http://localhost:8080/apiStudent/register",
+                    data: JSON.stringify(student),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "text",
+                    success: function(result, textStatus, jqXHR){
+                        console.log("Success");
+                        console.log(jqXHR);
+                    },
+                    error: function() {
+                        console.log("Fail");
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

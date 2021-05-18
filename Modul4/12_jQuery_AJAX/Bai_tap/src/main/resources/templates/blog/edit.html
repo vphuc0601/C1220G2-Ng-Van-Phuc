@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head"></head>
+<body>
+<nav th:replace="/layout :: navbar"></nav>
+
+<div class="container">
+    <h1 class="text-center my-3">Edit Blog</h1>
+    <form class="form w-75 border mx-auto" th:action="@{/blog/update}" th:object="${blog}" method="POST"
+          novalidate="novalidate">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{author}">
+        <input type="hidden" th:field="*{date}">
+        <table class="table table-borderless">
+            <tbody>
+            <tr class="form-group">
+                <td class="font-weight-bold">Title</td>
+                <td><input class="form-control" type="text" th:field="*{title}"/></td>
+            </tr>
+            <tr class="form-group">
+                <td class="font-weight-bold">Category</td>
+                <td>
+                    <select class="custom-select w-50" th:field="*{category.id}">
+                        <option th:each="category : ${categories}" th:value="${category.id}"
+                                th:text="${category.name}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td class="font-weight-bold">Description</td>
+                <td><textarea rows="2" class="form-control" th:field="*{description}"></textarea></td>
+            </tr>
+            <tr class="form-group">
+                <td class="font-weight-bold">Content</td>
+                <td><textarea rows="5" class="form-control" th:field="*{content}"></textarea></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <a class="btn btn-secondary" th:href="@{/}">Cancel</a>
+                    <input type="submit" class="btn btn-warning" value="Update"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+<footer th:replace="/layout :: script"></footer>
+</body>
+</html>

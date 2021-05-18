@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout::head}">
+
+</head>
+<body>
+<form action="/create" method="post" th:object="${phone}">
+    <div>
+        <label>Name:</label>
+        <input type="text"  th:field="*{name}"/>
+    </div>
+    <div>
+        <label>Price:</label>
+        <input type="text"  th:field="*{price}"/>
+    </div>
+    <div>
+        <label>Status:</label>
+        <input type="text"  th:field="*{status}"/>
+    </div>
+    <div>
+        <label>Quantity:</label>
+        <input type="text"  th:field="*{quantity}"/>
+    </div>
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

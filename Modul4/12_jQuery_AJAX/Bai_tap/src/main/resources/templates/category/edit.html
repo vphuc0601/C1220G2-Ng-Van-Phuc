@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head"></head>
+<body>
+<nav th:replace="/layout :: navbar"></nav>
+
+<div class="container-fluid p-0">
+    <div class="row p-0">
+        <div th:insert="/layout :: sidebar (${categoryList})"></div>
+        <div class="col">
+            <h1 class="text-center my-3">Edit Category</h1>
+            <form class="form w-75 border mx-auto p-3" th:action="@{/category/save}" th:object="${category}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <h4>Category:</h4>
+                    <input class="form-control" type="text" th:field="*{name}"/>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-secondary" th:href="@{/category}">Cancel</a>
+                    <input type="submit" class="btn btn-warning" value="Update"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: script"></footer>
+</body>
+</html>

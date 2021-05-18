@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head"></head>
+<body>
+<nav th:replace="/layout :: navbar"></nav>
+
+<div class="container">
+    <div>
+        <div class="d-inline float-left my-3">
+            <a class="btn btn-secondary text-decoration-none float-left" th:href="@{/}">Back</a>
+        </div>
+        <div class="d-inline float-right my-3">
+            <a class="btn btn-warning text-decoration-none" th:href="@{/blog/edit(id=${blog.id})}">Edit</a>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                    th:onclick="|parseId('${blog.id}')|">Delete
+            </button>
+        </div>
+    </div>
+    <table class="table table-borderless">
+        <tr>
+            <th colspan="3">
+                <h1 class="text-center my-3" th:text="${blog.title}"></h1>
+            </th>
+        </tr>
+        <tr>
+            <td class="align-middle" th:text="'Author: ' + ${blog.author}"></td>
+            <td class="align-middle" th:text="'Date: ' + ${blog.date}"></td>
+            <td class="align-middle" th:text="'Category: ' + ${blog.category.name}"></td>
+        </tr>
+        <tr>
+            <td colspan="3" th:text="${blog.content}"></td>
+        </tr>
+    </table>
+</div>
+<footer th:replace="/layout :: deleteModal ('blog')"></footer>
+<footer th:replace="/layout :: script"></footer>
+</body>
+</html>

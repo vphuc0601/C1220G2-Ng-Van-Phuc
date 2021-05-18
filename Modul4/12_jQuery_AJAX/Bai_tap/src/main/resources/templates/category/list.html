@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head"></head>
+<body>
+
+<nav th:replace="/layout :: navbar"></nav>
+
+<div class="container-fluid p-0">
+    <div class="row p-0">
+        <div th:insert="/layout :: sidebar (${categoryList})"></div>
+        <div class="col">
+            <h1 class="text-center my-3">Category List</h1>
+            <div th:if="${message}">
+                <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+                    <button type="button" class="close btn shadow-none float-right" data-dismiss="alert">&times;
+                    </button>
+                    <span th:text="${message}"></span>
+                </div>
+            </div>
+
+            <table class="table table-hover table-striped" id="categories">
+                <thead>
+                <tr>
+                    <th class="align-middle">ID</th>
+                    <th class="align-middle">Category</th>
+                    <th>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#createModal">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="category,iterStat : ${categories}">
+                    <td class="align-middle" th:text="${category.id}"></td>
+                    <td class="align-middle" th:text="${category.name}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/category/edit(id=${category.id})}">
+                            <i class="far fa-edit"></i></a>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                                th:onclick="|parseId('${category.id}')|"><i class="fas fa-ban"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <a th:href="@{/category(page=${categories.number - 1})}" th:if="${categories.hasPrevious()}">Previous</a>
+                <span th:text="${categories.number + 1}"></span>/<span th:text="${categories.totalPages}"></span>
+                <a th:href="@{/category(page=${categories.number + 1})}" th:if="${categories.hasNext()}">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create and Edit Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="createModalLabel">Enter category</h5>
+                <button type="button" class="close btn shadow-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/category/save}" th:object="${category}">
+                    <input type="text" class="form-control mb-3" th:field="*{name}">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="/layout :: deleteModal ('category')"></div>
+<div th:replace="/layout :: script"></div>
+
+</body>
+</html>

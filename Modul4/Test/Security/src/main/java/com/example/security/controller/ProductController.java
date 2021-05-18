@@ -92,7 +92,7 @@ public class ProductController {
     public ModelAndView searchProduct(@RequestParam String keyword, @PageableDefault(value = 5)Pageable pageable){
         return new ModelAndView("product/list", "productList", productService.searchProduct(keyword, pageable));
     }
-    @GetMapping("product/403")
+    @GetMapping("/403")
     public String error403(){
         return "403";
     }

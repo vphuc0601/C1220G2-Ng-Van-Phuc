@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<nav th:replace="/layout :: navbar"></nav>
+
+<div class="container-fluid">
+    <h1 class="text-center my-3">Blog List</h1>
+
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close btn shadow-none float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+
+    <table class="table table-hover table-striped" id="blogs">
+        <thead>
+        <tr>
+            <th class="align-middle">ID</th>
+            <th class="align-middle">Title</th>
+            <th class="align-middle">Author</th>
+            <th class="align-middle">Date</th>
+            <th class="align-middle">Category</th>
+            <th class="align-middle">Description</th>
+            <th class="align-middle">
+                <a class="btn btn-success" th:href="@{/blog/create}"><i class="far fa-plus-square"></i></a>
+            </th>
+        </tr>
+        </thead>
+        <tbody id="table-content">
+
+        </tbody>
+    </table>
+    <button id="load-more" value="1" class="btn btn-primary float-right">Load more</button>
+</div>
+<div th:replace="/layout :: deleteModal ('blog')"></div>
+<div th:replace="/layout :: script"></div>
+</body>
+</html>

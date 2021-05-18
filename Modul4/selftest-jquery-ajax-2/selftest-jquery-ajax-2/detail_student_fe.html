@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail student</title>
+</head>
+<body>
+    <div id="divBody">
+        <p>Name: <span id="spanName"></span></p>
+        <p>Date of birth: <span id="spanDateOfBirth"></span></p>
+        <p>Class Name: <span id="spanClassName"></span></p>
+    </div>
+    <button id="btnMore">Tải thêm</button>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+    let idStudent = 3;
+    $.ajax({
+        type: "GET", //GET, DELETE, PUT...
+        url: "http://localhost:8080/apiStudent/detail/" + idStudent,
+        dataType: "json",
+        // dataType: "text",
+        success: function(result){
+            console.log(result);
+            $("#spanName").html(result.name);
+            $("#spanDateOfBirth").html(result.dateOfBirth);
+            $("#spanClassName").html(result.classStudent.name);
+            // $("#divBody").html(result.name);
+
+        },
+        error: function(result) {
+            console.log("Fail");
+        }
+    });
+
+    $("#btnMore").click(function() {
+        let oldHtml = $("#divBody").html();
+
+        // call webservice
+        oldHtml += "<br>Info";
+        $("#divBody").html(oldHtml);
+    });
+</script>
+</body>
+</html>
