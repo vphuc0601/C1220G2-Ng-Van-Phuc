@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="22b15f35-6890-490a-ac9e-b54c175b3027" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/SecurityApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/config/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/controller/ProductOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/entity/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/entity/ProductOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/entity/ProductType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/entity/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/repository/ProductOrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/repository/ProductTypeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/repository/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/ProductOrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/ProductTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/UserDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/UserDetailServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/impl/ProductOrderServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/impl/ProductServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/security/service/impl/ProductTypeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/403.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/productOrder/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/productOrder/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/productOrder/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/productOrder/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/productOrder/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/security/PasswordGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/security/SecurityApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1sSnX85lzSIddv4d5zcqhNZO6qJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../14_Security/Bai_tap/Product_Security" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\C1220G2-Ng-Van-Phuc\Modul4\Test\Security\src\main\java\com\example\security\controller" />
+      <recent name="C:\C1220G2-Ng-Van-Phuc\Modul4\Test\Security\src\main\resources\templates" />
+      <recent name="C:\C1220G2-Ng-Van-Phuc\Modul4\Test\Security\src\main\java\com\example\security\service" />
+      <recent name="C:\C1220G2-Ng-Van-Phuc\Modul4\Test\Security\src\main\java\com\example\security\repository" />
+      <recent name="C:\C1220G2-Ng-Van-Phuc\Modul4\Test\Security\src\main\java\com\example\security\entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SecurityApplication">
+    <configuration name="PasswordGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.security.PasswordGenerator" />
+      <module name="security.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="security.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.security.SecurityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PasswordGenerator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22b15f35-6890-490a-ac9e-b54c175b3027" name="Default Changelist" comment="" />
+      <created>1620874896013</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620874896013</updated>
+      <workItem from="1620874903327" duration="6183000" />
+      <workItem from="1620955885852" duration="15862000" />
+      <workItem from="1620994651630" duration="5828000" />
+      <workItem from="1621217989421" duration="13920000" />
+      <workItem from="1621301470388" duration="763000" />
+      <workItem from="1621406990308" duration="2531000" />
+      <workItem from="1621474332160" duration="219000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1620961925389">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1620961925389" />
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1621474549738">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1621474549738" />
+    <state width="1237" height="79" key="GridCell.Tab.0.bottom" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.0.center" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.0.left" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.0.right" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.1.bottom" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.1.center" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.1.left" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.1.right" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.2.bottom" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.2.center" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.2.left" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state width="1237" height="79" key="GridCell.Tab.2.right" timestamp="1621247716264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="79" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1621247716264" />
+    <state x="91" y="50" key="new project wizard" timestamp="1621301661394">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="91" y="50" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1621301661394" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1621242113922">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1621242113922" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/security/controller/ProductController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
