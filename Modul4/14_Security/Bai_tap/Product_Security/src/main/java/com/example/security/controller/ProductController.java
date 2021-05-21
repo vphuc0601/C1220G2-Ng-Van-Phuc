@@ -22,6 +22,16 @@ public class ProductController {
     @Autowired
     private ProductTypeService productTypeService;
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("logout")
+    public String logout() {
+        return "redirect:/";
+    }
+
     @GetMapping({"", "/"})
     public String goHome() {
         return "home";
