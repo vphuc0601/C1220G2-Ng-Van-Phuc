@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Customer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="content" style="background-color: whitesmoke">
+        <div class="row">
+            <!--            <div class="col-lg-2" th:replace="layout :: col2">-->
+
+            <div class="col-lg-10 bg-light">
+                <div class="col-12">
+                    <form th:action="@{/customer/edit}" method="post" th:object="${customer}" novalidate="novalidate">
+                        <div class="">
+                            <input type="hidden" th:field="*{id}">
+                            <div class="form-group">
+                                <label>Cusstomer ID:</label>
+                                <input th:field="*{customerId}" type="text" class="form-control" placeholder="ID customer..." readonly>
+                                <p class="text-center" th:errors="*{customerId}" ></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input th:field="*{customerName}" type="text" class="form-control" placeholder="Name customer...">
+                                <p class="text-center" th:errors="*{customerName}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Date of birth:</label>
+                                <input th:field="*{customerBirthday}" type="date" class="form-control" placeholder="Date of birth..."></input>
+                                <p class="text-center" th:errors="*{customerBirthday}" ></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Gender:</label><br>
+                                <!--                            <input type="text" th:field="*{gender}" class="form-control" placeholder="Gender...">-->
+                                <select th:field="*{customerGender}" class="form-control">
+                                    <option value="0">Male</option>
+                                    <option value="1">Female</option>
+                                    <option value="2">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <label>ID Card:</label><br>
+                                <input type="text" th:field="*{customerIdCard}" class="form-control" placeholder="ID Card...">
+                                <p class="text-center" th:errors="*{customerIdCard}" ></p>
+
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Phone Number:</label>
+                                <input th:field="*{customerPhone}" type="text" class="form-control" placeholder="Phone number...">
+                                <p class="text-center" th:errors="*{customerPhone}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Email:</label>
+                                <input th:field="*{customerEmail}" type="text" class="form-control" placeholder="abc@gmail.com..."></input>
+                                <p class="text-center" th:errors="*{customerEmail}" ></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Address:</label>
+                                <input th:field="*{customerAddress}" type="text" class="form-control" placeholder="Address...">
+                                <p class="text-center" th:errors="*{customerAddress}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Customer Type:</label>
+                                <select th:field="*{customerType}" class="form-control">
+                                    <option
+                                            th:each="cusType : ${customerTypeList}"
+                                            th:value="${cusType.id}"
+                                            th:text="${cusType.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+                        <a th:href="@{/customer}" class="btn btn-outline-success btn-sm">Close</a>
+                    </form>
+<!--                    <span th:text="${message}" style="text-align: center; color: blue"></span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+</html>

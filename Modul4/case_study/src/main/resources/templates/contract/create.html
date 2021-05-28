@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Create Contract</title>
+</head>
+<body>
+<div class="row">
+    <div  th:replace="~{layout/navbar::navbar}"></div>
+    <div  style="margin-top: 130px" class="container" >
+                <form th:action="@{/contract/create}" th:object="${contract}"
+                      method="POST" >
+                    <div hidden>
+                        <label>Id</label>
+                        <input class="input-group mb-3" type="text" th:field="*{id}"/>
+                    </div>
+                    <div>
+                        <label>Start Date</label>
+                        <input class="input-group mb-3" type="date" th:field="*{startDate}"/>
+                        <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                           style="color: red"></p>
+                    </div>
+                    <div>
+                        <label>End Date</label>
+                        <input class="input-group mb-3" type="date" th:field="*{endDate}"/>
+                        <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"
+                           style="color: red"></p>
+
+                    </div>
+                    <div>
+                        <label>Deposit</label>
+                        <input class="input-group mb-3" type="number" th:field="*{deposit}"/>
+                        <p style="color: red" th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}"></p>
+                    </div>
+<!--                    <label hidden>Contract Total Money</label>-->
+<!--                    <input hidden class="input-group mb-3" type="number" th:field="*{totalMoney}"/>-->
+<!--                    <p hidden th:if="${#fields.hasErrors('totalMoney')}" th:errors="*{totalMoney}"-->
+<!--                                               style="color: red"></p>-->
+
+                    <div>
+                        <label>Employee</label>
+                        <!--                <input class="input-group mb-3" type="text" th:field="*{rentType.ren_type_id}"/>-->
+                        <select th:field="*{employee}" class="form-control" name="">
+                            <option th:each="em : ${employee}"
+                                    th:value="${em.id}"
+                                    th:text="${em.employeeName}">
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Customer</label>
+                        <!--                <input class="input-group mb-3" type="text" th:field="*{serviceType.service_type_id}"/>-->
+                        <select th:field="*{customer}" class="form-control" name="">
+                            <option th:each="cu : ${customer}"
+                                    th:value="${cu.id}"
+                                    th:text="${cu.customerName}">
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Service</label>
+                        <!--                <input class="input-group mb-3" type="text" th:field="*{service}"/>-->
+                        <select th:field="*{service}" class="form-control" name="">
+                            <option th:each="se : ${service}"
+                                    th:value="${se.id}"
+                                    th:text="${se.name}">
+                            </option>
+                        </select>
+                    </div>
+                    <input class="btn btn-outline-success btn-sm w-25" type="submit" value="Save" style="text-align: center">
+                </form>
+    </div>
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+</body>
+</html>

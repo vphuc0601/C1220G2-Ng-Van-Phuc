@@ -23,11 +23,15 @@
                  class="d-inline-block align-top" alt="1">
         </a>
         <div sec:authorize="isAuthenticated()">
-            Welcome:   <b><span sec:authentication="name">Username</span></b>
-            &nbsp;
+            <div>
+            <span><i class="fas fa-user-circle"></i></span>
+            <span sec:authentication="name">Username</span>
             <span sec:authentication="principal.authorities">Role</span>
+            </div>
             <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Logout">
+                <button type="submit">
+                  <i class="fas fa-sign-out-alt" ></i>
+                </button>
             </form>
         </div>
 <!--        <p style="font-size: 20px ;margin-right: 30px"> Nguyễn Văn Phúc</p>-->

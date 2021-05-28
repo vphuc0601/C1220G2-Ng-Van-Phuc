@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-image {
+            min-height: 17em;
+        }
+
+        .form-search {
+            margin-top: 70px;
+        }
+
+        body {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-warning">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row form-search">
+        <form class="mx-auto">
+            <div class="form-row">
+                <div class="col">
+                    <label for="nameProduct">Tên sản phẩm</label>
+                    <input class="form-control" id="nameProduct" type="text"
+                           th:value="${nameProduct}" name="nameProduct">
+                </div>
+                <div class="col">
+                    <label for="idTypeProduct">Danh mục</label><select class="form-control" id="idTypeProduct"
+                                                                       name="idTypeProduct">
+                    <option th:value="null">chọn</option>
+                    <th:block th:each="i : ${typeProductList}">
+                        <option th:value="${i.getIdTypeProduct()}" th:text="${i.getNameType()}"
+                                th:selected=" ${i.getIdTypeProduct()} == ${idTypeProduct}">
+                        </option>
+                    </th:block>
+                </select>
+                </div>
+                <div class="col">
+                    <label for="priceFrom">Giá từ</label>
+                    <input class="form-control" id="priceFrom" th:value="${priceFrom}" type="number"
+                           name="priceFrom">
+                </div>
+                <div class="col">
+                    <label for="priceTo">Đến</label>
+                    <input class="form-control" id="priceTo" th:value="${priceTo}" type="number" name="priceTo">
+                </div>
+                <div class="ml-3 d-flex align-items-end">
+                    <input type="submit" class="btn btn-success" value="Search">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="row content">
+        <th:block th:each="product : ${productList}">
+            <div class="col-4">
+                <div class="card mx-auto my-4 text-center p-3" style="width: 18rem;">
+                    <div class="card-image">
+                        <img th:src="@{${product.getImage()}}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <span>Tên sản phẩm: </span> <h5 class="card-title" th:text="${product.getNameProduct()}"></h5>
+                        <span>Giá:  </span>
+                        <p class="card-text" th:text="${product.getPrice()}"></p>
+                        <span>Danh mục: </span>
+                        <p class="card-text" th:text="${product.getTypeProduct().getNameType()}"></p>
+                        <button class="btn btn-success">Mua</button>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <button id="load-more" class="btn btn-primary">Xem thêm</button>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let index = 0;
+        let data = '';
+        scrollList(offset);
+
+        function scrollList(index) {
+            let nameProduct = $('#nameProduct').val();
+            let idTypeProduct = $('#idTypeProduct').val();
+            let priceFrom = $('#priceFrom').val();
+            let priceTo = $('#priceTo').val();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                dataType: 'json',
+                url: `http://localhost:8080/api?nameProduct=${nameProduct}&idTypeProduct=${idTypeProduct}&priceFrom=${priceFrom}&priceTo=${priceTo}&index=${index}`,
+                success: function (listProductLimit) {
+                    for (let product of listProductLimit) {
+                        console.log(product.nameProduct);
+                        data += ' <div class="col-4">\n' +
+                            '                <div class="card mx-auto my-4 text-center p-3" style="width: 18rem;">\n' +
+                            '                    <div class="card-image">\n' +
+                            '                        <img src="' + product.image + '" class="card-img-top" alt="...">\n' +
+                            '                    </div>\n' +
+                            '                    <div class="card-body">\n' +
+                            '                        <span>Tên sản phẩm: </span> <h5 class="card-title" >' + product.nameProduct + '</h5>\n' +
+                            '                        <span>Giá:  </span>\n' +
+                            '                        <p class="card-text">' + product.price + '</p>\n' +
+                            '                        <span>Danh mục: </span>\n' +
+                            '                        <p class="card-text" >' + product.typeProduct.nameType + '</p>\n' +
+                            '                        <button class="btn btn-success">Mua</button>\n' +
+                            '                    </div>\n' +
+                            '                </div>\n' +
+                            '            </div>'
+                    }
+                    $('div.content').html(data);
+                }
+                ,
+                error: function (content) {
+                    $("#tableBlog").val('b');
+                    console.log(content);
+                }
+            });
+        }
+
+        $("#load-more").click(function () {
+            index += 3;
+            scrollList(index);
+        });
+    });
+</script>
+</body>
+</html>

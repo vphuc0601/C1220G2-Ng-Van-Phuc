@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div class="row">
+    <div  th:replace="~{layout/navbar::navbar}"></div>
+    <div  style="margin-top: 130px" class="container" >
+        <div id="content" style="background-color: whitesmoke">
+            <div class="row">
+        <div class="col-lg-10 bg-light">
+        <div class="col-12" >
+            <form th:action="@{/service/create}" method="post" th:object="${service}" novalidate="novalidate" >
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group ">
+                    <label for="name">Name:</label>
+                    <input id="name" th:field="*{name}" type="text" class="form-control" placeholder="Name ...">
+                    <p class="text-center" th:errors="*{name}" ></p>
+                </div>
+                <div class="form-group">
+                    <label for="area">Area:</label>
+                    <input id="area" th:field="*{area}" type="number" class="form-control" placeholder="Area..."></input>
+                    <p class="text-center" th:errors="*{area}" ></p>
+                </div>
+                <div class="form-group ">
+                    <label for="cost">Cost:</label>
+                    <input id="cost" th:field="*{cost}" type="number" class="form-control" placeholder="Cost..."></input>
+                    <p class="text-center" th:errors="*{cost}" ></p>
+                </div>
+                <div class="form-group">
+                    <label for="maxPeople">Max People:</label><br>
+                    <input id="maxPeople" type="text" th:field="*{maxPeople}" class="form-control" placeholder="People...">
+                    <p class="text-center" th:errors="*{maxPeople}" ></p>
+                </div>
+                <div class="form-group ">
+                    <label for="serviceType">Type Service</label>
+                    <select id="serviceType" th:field="*{serviceType}" class="form-control" style="height: 50px">
+                        <option
+                                th:each="se : ${serviceTypeList}"
+                                th:value="${se.id}"
+                                th:text="${se.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <label for="standardRoom">Standard Room:</label>
+                    <input id="standardRoom" th:field="*{standardRoom}" type="text" class="form-control" placeholder="Standard Room...">
+                    <p class="text-center" th:errors="*{standardRoom}" ></p>
+                </div>
+                <div class="form-group">
+                    <label for="numberOfFloors">Number of Floors:</label>
+                    <input id="numberOfFloors" th:field="*{numberOfFloor}" type="text" class="form-control" placeholder="Number of Floors...">
+                    <p class="text-center" th:errors="*{numberOfFloor}" ></p>
+                </div>
+                <div class="form-group ">
+                    <label for="description">Description Other:</label>
+                    <input id="description" th:field="*{desciption}" type="text" class="form-control" placeholder="Description..."></input>
+                    <p class="text-center" th:errors="*{desciption}" ></p>
+                </div>
+                <div class="form-group">
+                    <label for="poolArea">Pool Area:</label>
+                    <input id="poolArea" th:field="*{poolArea}" type="text" class="form-control" placeholder="Pool Area...">
+                    <p class="text-center" th:errors="*{poolArea}" ></p>
+                </div>
+                <div class="form-group">
+                    <label for="rentTypeId">Rent Type</label>
+                    <select id="rentTypeId" th:field="*{rentType}" class="form-control" style="height: 50px">
+                        <option
+                                th:each="re : ${rentTypeList}"
+                                th:value="${re.id}"
+                                th:text="${re.name}"></option>
+                    </select>
+                </div>
+                <div style="text-align: center">
+                    <button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+                    <a th:href="@{/service}" class="btn btn-outline-success btn-sm">Close</a>
+                </div>
+            </form>
+        </div>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+</body>
+</html>

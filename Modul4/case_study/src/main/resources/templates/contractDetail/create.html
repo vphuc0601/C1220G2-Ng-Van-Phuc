@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Create Contract Detail</title>
+</head>
+<body>
+<div class="row">
+    <div  th:replace="~{layout/navbar::navbar}"></div>
+    <div  style="margin-top: 130px" class="container" >
+        <form th:action="@{/contractDetail/create}" th:object="${contractDetail}"
+              method="POST" novalidate="novalidate">
+            <div>
+                <label>Contract Detail Id</label>
+                <input class="input-group mb-3" type="text" th:field="*{id}"/>
+            </div>
+            <div>
+                <label>Contract Id</label>
+                <!--            <input class="input-group mb-3" type="text" th:field="*{contract.contractId}"/>-->
+                <select th:field="*{contract}" class="form-control" name="Order">
+                    <option th:each="co : ${contractList}"
+                            th:value="${co.id}"
+                            th:text="${co.id}">
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label>Attach Service</label>
+                <!--            <input class="input-group mb-3" type="text" th:field="*{attachService.attachServiceId}"/>-->
+                <select th:field="*{attachService}" class="form-control" name="Order">
+                    <option th:each="at : ${attachServiceList}"
+                            th:value="${at.id}"
+                            th:text="${at.name}">
+                    </option>
+                </select>
+            </div>
+            <input class="btn btn-outline-success btn-sm w-25" type="submit" value="Save">
+        </form>
+    </div>
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+</body>
+</html>

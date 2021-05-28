@@ -1,0 +1,53 @@
+<div id="form" class="img" xmlns:th="http://www.thymeleaf.org">
+    <form  th:action="@{/contract/updateContract}" th:object="${contract}"
+           method="POST" novalidate="novalidate">
+        <input class="input-group mb-3" type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Contract Start Date</label>
+            <input class="input-group mb-3" type="text" th:field="*{startDate}"/>
+        </div>
+        <div>
+            <label>Contract End Date</label>
+            <input class="input-group mb-3" type="text" th:field="*{endDate}"/>
+        </div>
+        <div>
+            <label>Contract Deposit</label>
+            <input class="input-group mb-3" type="text" th:field="*{deposit}"/>
+        </div>
+        <div>
+            <label>Contract Total Money</label>
+            <input class="input-group mb-3" type="text" th:field="*{totalMoney}"/>
+        </div>
+        <div>
+            <label>Employee</label>
+            <!--                <input class="input-group mb-3" type="text" th:field="*{rentType.ren_type_id}"/>-->
+            <select th:field="*{employee}" class="form-control"  name="">
+                <option th:each="em : ${employee}"
+                        th:value="${em.id}"
+                        th:text="${em.employeeName}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Customer</label>
+            <!--                <input class="input-group mb-3" type="text" th:field="*{serviceType.service_type_id}"/>-->
+            <select th:field="*{customer}" class="form-control" name="">
+                <option th:each="cu : ${customer}"
+                        th:value="${cu.id}"
+                        th:text="${cu.customerName}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Service</label>
+            <!--                <input class="input-group mb-3" type="text" th:field="*{service}"/>-->
+            <select th:field="*{service}" class="form-control" name="">
+                <option th:each="se : ${service}"
+                        th:value="${se.id}"
+                        th:text="${se.name}">
+                </option>
+            </select>
+        </div>
+        <input type="submit" value="Edit">
+    </form>
+</div>

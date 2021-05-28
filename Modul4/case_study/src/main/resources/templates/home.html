@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div class="row" th:replace="~{layout/navbar::navbar}"></div>
+<div style="position: relative;top: 135px">
+        <div class="card" style="width: 18rem;position: absolute;float: left">
+            <div id="myCarousel1" class="carousel slide border" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100"
+                             src="https://luhanhvietnam.com.vn/du-lich-free-easy/vnt_upload/tour/08_2019/furama-nha-hang.jpg"
+                             alt="1">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://luhanhvietnam.com.vn/du-lich-free-easy/vnt_upload/tour/07_2019/phong-ngu-o-furama-resort-da-nang.jpg"
+                             alt="2">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://luhanhvietnam.com.vn/du-lich-free-easy/vnt_upload/tour/07_2019/phong-ngu-o-furama-resort-da-nang_1.jpg"
+                             alt="3">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://luhanhvietnam.com.vn/du-lich-free-easy/vnt_upload/tour/08_2019/furama-spa.jpg"
+                             alt="3">
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Furama Da Nang</h5>
+                <p class="card-text">Furama Resort Đà Nẵng là resort 5 sao với những tiêu chuẩn dịch vụ tốt nhất cho du
+                    khách khi du lịch Đà Nẵng. Những căn phòng tiện nghi, hồ bơi rộng lớn, vị trí tuyệt vời nằm cạnh bãi
+                    biển và còn nhiều hơn nữa những điều thú vị chờ du khách phá.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <p><img src="https://www.flaticon.com/svg/static/icons/svg/968/968374.svg" width="20px">
+                        103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam</p>
+                </li>
+                <li class="list-group-item">
+                    <p><img src="http://simpleicon.com/wp-content/uploads/phone-1.png" width="20px">  84-236-3847 333/888</p></li>
+                <li class="list-group-item">
+                    <p><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/mail_icon_128820.png" width="20px">
+                                reservation@furamavietnam.com
+                    </p></li>
+            </ul>
+                    <div class="card-body" style="text-align: left">
+                        <a href="https://www.facebook.com/furamaresort" class="card-link">
+                            <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-128.png" width="30px">
+                            /furamaresort
+                        </a><br><br>
+                        <a href="https://www.instagram.com/furama_resort_danang/" class="card-link">
+                            <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-128.png" width="30px">
+                            /furama_resort_danang
+                        </a>
+                        <br><br>
+                        <a href="https://www.tripadvisor.com.vn/Hotel_Review-g298085-d302750-Reviews-Furama_Resort_Danang-Da_Nang.html" class="card-link">
+                            <img src="https://www.flaticon.com/premium-icon/icons/svg/2504/2504944.svg" width="30px">
+                            /furama_resort_danang
+                        </a>
+                    </div>
+        </div>
+
+        <div class="card" style="width: 81%; margin-left: 18rem ; height: 115%">
+            <div id="myCarousel" class="carousel slide border" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100"
+                             src="http://media.thethaovanhoa.vn/2016/12/04/22/46/IntercontinentalSunPeninsulaResort0.jpg"
+                             alt="1">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://mytourcdn.com/upload_images/Image/Location/24_9_2015/5-Resort-dep-dat-nhat-viet-nam-mytour-1.jpg"
+                             alt="2">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://media.tinmoi.vn/2015/03/12/r5.jpg"
+                             alt="3">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://www.vnbooking.com/upload/article/image/danh%20sach%20resort%205%20sao%20da%20nang.jpg"
+                             alt="4">
+                    </div>
+                </div>
+            </div>
+            <!--        <iframe style="margin-left: 15% ;margin-top: 10%" width="760" height="515" src="https://www.youtube.com/embed/dJCeMv8vyBE?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+        </div>
+</div>
+<footer th:replace="~{layout/footer :: footer}"></footer>
+</body>
+</html>

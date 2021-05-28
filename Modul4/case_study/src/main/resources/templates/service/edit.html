@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Service</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="content" style="background-color: whitesmoke">
+        <div class="row">
+            <!--            <div class="col-lg-2" th:replace="layout :: col2">-->
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-10 bg-light">
+                <div class="col-12">
+                    <form th:action="@{/service/edit}" method="post" th:object="${service}" novalidate="novalidate">
+                        <div class="">
+                            <input type="hidden" th:field="*{id}">
+                            <div class="form-group">
+                                <label>Service ID:</label>
+                                <input th:field="*{id}" type="text" class="form-control" placeholder="ID service...">
+                                <p class="text-center" th:errors="*{id}" ></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input th:field="*{name}" type="text" class="form-control" placeholder="Name service...">
+                                <p class="text-center" th:errors="*{name}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Area:</label>
+                                <input th:field="*{area}" type="number" class="form-control" placeholder="Area..."></input>
+                                <p class="text-center" th:errors="*{area}" ></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Cost:</label>
+                                <input th:field="*{cost}" type="number" class="form-control" placeholder="Cost..."></input>
+                                <p class="text-center" th:errors="*{cost}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Max people:</label><br>
+                                <input type="text" th:field="*{maxPeople}" class="form-control" placeholder="Max people...">
+                                <p class="text-center" th:errors="*{maxPeople}" ></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Standard Room:</label>
+                                <input th:field="*{standardRoom}" type="text" class="form-control" placeholder="Standard Room...">
+                                <p class="text-center" th:errors="*{standardRoom}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Number of Floors:</label>
+                                <input th:field="*{numberOfFloor}" type="text" class="form-control" placeholder="Number of Floors..."></input>
+                                <p class="text-center" th:errors="*{numberOfFloor}" ></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Desciption:</label>
+                                <input th:field="*{desciption}" type="text" class="form-control" placeholder="Desciption...">
+                                <p class="text-center" th:errors="*{desciption}" ></p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Pool Area:</label>
+                                <input th:field="*{poolArea}" type="text" class="form-control" placeholder="Pool Area...">
+                                <p class="text-center" th:errors="*{poolArea}" ></p>
+                                <label>Rent Type:</label>
+                                <select th:field="*{rentType}" class="form-control">
+                                    <option
+                                            th:each="re : ${rentTypeList}"
+                                            th:value="${re.id}"
+                                            th:text="${re.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn btn-outline-success btn-sm w-auto">Save</button>
+                        <a th:href="@{/service}" class="btn btn-outline-success btn-sm w-auto">Close</a>
+                    </form>
+<!--                    <span th:text="${message}" style="text-align: center; color: blue"></span>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+</html>

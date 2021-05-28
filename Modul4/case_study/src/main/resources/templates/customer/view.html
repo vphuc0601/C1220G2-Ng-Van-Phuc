@@ -1,0 +1,48 @@
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+
+    <div id="content" style="background-color: whitesmoke">
+        <div class="row">
+        </div>
+        <div class="col-lg-12 bg-light" >
+            <table class="table table-striped">
+                <tr>
+                    <th>Name:</th>
+                    <td th:text="${customer.customerName}"></td>
+                </tr>
+                <tr>
+                    <th>Date of birth:</th>
+                    <td th:text="${customer.customerBirthday}"></td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <th:block th:switch="${customer.customerGender}">
+                        <td th:case="0">Male</td>
+                        <td th:case="1">Female</td>
+                        <td th:case="*">Other</td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>ID Card:</th>
+                    <td th:text="${customer.customerIdCard}"></td>
+                </tr>
+                <tr>
+                    <th>Phone number:</th>
+                    <td th:text="${customer.customerPhone}"></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td th:text="${customer.customerEmail}"></td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td th:text="${customer.customerAddress}"></td>
+                </tr>
+                <tr>
+                    <th>Customer Type:</th>
+                    <td th:text="${customer.customerType.getName()}"></td>
+                </tr>
+            </table>
+            <a data-dismiss="modal" class="btn btn-outline-success btn-sm">Close</a>
+        </div>
+    </div>
+</div>
